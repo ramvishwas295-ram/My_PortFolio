@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vishwas | Cybersecurity Enthusiast</title>
+<meta name="description" content="Portfolio of Vishwas, a Computer Engineering student learning web security, networking and penetration testing.">
+<meta name="theme-color" content="#060b16">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader" role="status" aria-live="polite">
+  <div class="pre-box">
+    <pre class="pre-log" id="preLog"></pre>
+    <div class="pre-bar"><span id="preFill"></span></div>
+    <div class="pre-pct" id="prePct">0%</div>
+  </div>
+</div>
+
+<div class="progress" id="scrollProgress" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- NAVIGATION -->
+<header class="nav" id="nav">
+  <a href="#home" class="logo" aria-label="Vishwas home">VISHWAS<span>_</span></a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+  <nav class="menu" id="menu" aria-label="Main">
+    <span class="indicator" id="indicator" aria-hidden="true"></span>
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#practice">Practice</a>
+    <a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-main">
+  <div class="hero-text">
+    <p class="status"><span class="dot"></span>Exploring Web Security</p>
+    <p class="hello">Hi, I'm Vishwas</p>
+    <h1 class="glitch" data-text="Cybersecurity Enthusiast">Cybersecurity Enthusiast</h1>
+    <p class="typer"><span class="prompt">&gt;</span> <span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
+    <p class="lead">Computer Engineering student learning how systems break, so I can help keep them safe. I practise on labs, build small tools, and document what I learn.</p>
+    <div class="actions">
+      <a href="#projects" class="btn btn-primary">Explore My Work</a>
+      <a href="#contact" class="btn btn-ghost">Contact Me</a>
+    </div>
+  </div>
+  <aside class="term glass" aria-label="Decorative system status panel">
+    <div class="term-head"><i></i><i></i><i></i><span>vishwas@portfolio: ~</span></div>
+    <pre class="term-body" id="termBody" aria-hidden="true"></pre>
+    <p class="sr-only">Decorative panel showing simulated status messages. No commands are executed.</p>
+  </aside>
+  </div>
+  <figure class="hero-photo">
+    <div class="photo-ring">
+      <div class="photo-frame">
+        <img id="profilePhoto" src="assets/profile.jpg.jpeg" alt="Vishwas - Cybersecurity Enthusiast" width="340" height="340" decoding="async">
+        <figcaption class="photo-ph">Add your photo<br><small>assets/profile.jpg</small></figcaption>
+      </div>
+    </div>
+  </figure>
+  <a href="#about" class="scroll-ind" aria-label="Scroll to About"><span></span></a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <h2 class="reveal">About me</h2>
+  <div class="split">
+    <div class="reveal">
+      <p>I'm pursuing a B.E. in Computer Engineering at Government Engineering College, Palanpur, with a focus on cybersecurity.</p>
+      <p>My learning is hands-on: networking fundamentals, Linux, web application security and security testing. I work through labs on SQL injection and path traversal, scan and analyse traffic with standard tools, and write small programs to understand how the pieces fit together.</p>
+      <p>I'm early in my career and looking to grow toward penetration testing and security operations.</p>
+      <ul class="chips"><li>Networking</li><li>Linux</li><li>Web security</li><li>Security testing</li></ul>
+    </div>
+    <div class="term glass reveal" aria-hidden="true">
+      <div class="term-head"><i></i><i></i><i></i><span>profile.json</span></div>
+<pre class="term-body">{
+  <b>"name"</b>      : Vishwas
+  <b>"degree"</b>    : B.E. Computer Engineering
+  <b>"college"</b>   : GEC Palanpur
+  <b>"focus"</b>     : Cloud Security , web security , networking , linux
+  <b>"practising"</b>: PortSwigger, TryHackMe , Hack The Box
+  <b>"goal"</b>      : Ethical Hacker , Penetration Tester , SOC analyst , Vulnerability Management
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec">
+  <h2 class="reveal">Skills and tools</h2>
+  <p class="sub reveal">Levels are honest self-assessments: <b>Foundations</b> means I understand the basics, <b>Hands-on</b> means I use it regularly in labs or projects.</p>
+  <div class="cards" id="skillGrid"></div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec">
+  <h2 class="reveal">Projects</h2>
+  <div class="cards two">
+    <article class="card glass reveal spot">
+      <span class="tag-type sec-tag">Security</span>
+      <div class="shot"><img src="assets/port-scanner.png" alt="Port Scanner project screenshot" decoding="async"></div>
+      <h3>Port Scanner</h3>
+      <p>A web-based port-scanning project: a Python program with an HTML, CSS and JavaScript interface. It demonstrates network security and port-scanning fundamentals.</p>
+      <ul class="badges"><li>Python</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+      <div class="card-actions"><a class="btn btn-ghost sm" data-link="portScannerRepo" target="_blank" rel="noopener">GitHub</a><a class="btn btn-ghost sm" data-link="portScannerDemo" target="_blank" rel="noopener" data-optional>Live demo</a></div>
+    </article>
+    <article class="card glass reveal spot">
+      <span class="tag-type dev-tag">Software development</span>
+      <div class="shot" role="img" aria-label="Screenshot placeholder for Hostel Management System"><span>Screenshot placeholder<br><small>assets/hostel-management.png</small></span></div>
+      <h3>Hostel Management System</h3>
+      <p>A project for managing hostel-related information and operations.</p>
+      <ul class="badges"><li>Flutter</li><li>Dart</li><li>Firebase Firestore</li><li>Firebase Storage</li></ul>
+      <div class="card-actions"><a class="btn btn-ghost sm" data-link="hostelRepo" target="_blank" rel="noopener">GitHub</a><a class="btn btn-ghost sm" data-link="hostelDemo" target="_blank" rel="noopener" data-optional>Live demo</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section id="practice" class="sec">
+  <h2 class="reveal">Hands-on practice</h2>
+  <div class="cards three">
+    <article class="card glass reveal spot">
+      <div class="stat"><span class="count" data-to="50">0</span>+</div>
+      <h3>PortSwigger Web Security Academy</h3><p>Labs completed</p>
+      <div class="bar"><span style="--w:100%"></span></div>
+      <a class="btn btn-ghost sm" data-link="portswigger" target="_blank" rel="noopener">Visit platform</a>
+    </article>
+    <article class="card glass reveal spot">
+      <div class="stat"><span class="count" data-to="10">0</span>+</div>
+      <h3>TryHackMe</h3><p>Practice activities</p>
+      <div class="bar"><span style="--w:100%"></span></div>
+      <a class="btn btn-ghost sm" data-link="tryhackme" target="_blank" rel="noopener">Visit platform</a>
+    </article>
+    <article class="card glass reveal spot">
+      <div class="stat"><span class="count" data-to="10">0</span>+</div>
+      <h3>Hack The Box</h3><p>Practice activities</p>
+      <div class="bar"><span style="--w:100%"></span></div>
+      <a class="btn btn-ghost sm" data-link="hackthebox" target="_blank" rel="noopener">Visit platform</a>
+    </article>
+  </div>
+  <p class="note reveal">Counts are minimums and editable in the CONFIG section of script.js. Bars show activity, not a percentage score.</p>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="sec">
+  <h2 class="reveal">Certifications and training</h2>
+  <div class="cards three" id="certGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec contact">
+  <div class="glass contact-box reveal">
+    <h2>Let's talk security</h2>
+    <p>I'm open to internships, learning opportunities and conversations about web security. Send me a message and I'll reply as soon as I can.</p>
+    <div class="actions center">
+      <a class="btn btn-primary" id="mailBtn" data-link="email">Email me</a>
+      <a class="btn btn-ghost" data-link="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" data-link="github" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" data-link="resume" download>Download resume</a>
+    </div>
+    <p class="mail-line" id="mailLine"></p>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><p>&copy; <span id="year"></span> Vishwas. Built with HTML, CSS and JavaScript.</p></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
