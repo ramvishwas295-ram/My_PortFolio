@@ -17,7 +17,7 @@ const CONFIG = {
   },
   // level: 'hands' = Hands-on, 'found' = Foundations
   skills: [
-    ['Networking fundamentals','Core','found'],['Kali Linux','Platform','hands'],['Windows','Platform','hands'],['Linux basics','Platform','found'],
+    ['Networking fundamentals','Core','found'],['CyberSecurity fundamentals','Core','found'],['Vulnerability Assessment','Core','found'],['Kali Linux','Platform','hands'],['Windows','Platform','hands'],['Linux basics','Platform','found'],
     ['Python','Language','found'],['C++','Language','found'],['JavaScript','Language','found'],['HTML and CSS','Language','hands'],
     ['SQL Injection fundamentals','Web security','hands'],['Path Traversal labs','Web security','hands'],['Web application security testing','Web security','hands'],
     ['Burp Suite','Tool','hands'],['Nmap','Tool','hands'],['Wireshark','Tool','found'],['OWASP ZAP','Tool','found'],['Nikto','Tool','found'],['Metasploit','Tool','found']
@@ -42,8 +42,22 @@ function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show'
 
 /* ---------- Build skills and certificate cards ---------- */
 const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-$('#skillGrid').innerHTML = CONFIG.skills.map(([n,c,l],i)=>
-  `<article class="card glass reveal spot" style="--d:${(i%4)*.06}s"><p class="skill-cat">${c}</p><h3>${esc(n)}</h3><span class="lvl ${l}">${l==='hands'?'Hands-on':'Foundations'}</span></article>`).join('');
+const skillCategories = new Map();
+CONFIG.skills.forEach(([name,category,level])=>{
+  if(!skillCategories.has(category))skillCategories.set(category,[]);
+  skillCategories.get(category).push({name,level});
+});
+const categoryLabels = {Core:'Core',Platform:'Platforms',Language:'Languages','Web security':'Web Security',Tool:'Security Tools'};
+$('#skillGrid').innerHTML = [...skillCategories].map(([category,skills],i)=>
+  `<article class="skill-group glass reveal spot" style="--d:${(i%3)*.08}s">
+    <header class="skill-group-head">
+      <div><p class="skill-cat">0${i+1} / CATEGORY</p><h3>${esc(categoryLabels[category]||category)}</h3></div>
+      <span class="skill-count">${String(skills.length).padStart(2,'0')} skills</span>
+    </header>
+    <ul class="skill-list">${skills.map(({name,level})=>
+      `<li class="skill-item"><span>${esc(name)}</span><span class="lvl ${level}">${level==='hands'?'Hands-on':'Foundations'}</span></li>`).join('')}
+    </ul>
+  </article>`).join('');
 const ph = t => `<span class="ph">${t}</span>`;
 $('#certGrid').innerHTML = CONFIG.certs.map((c,i)=>
   `<article class="card glass reveal spot cert" style="--d:${i*.08}s">
